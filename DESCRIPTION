@@ -1,0 +1,15 @@
+Package: lim.tiny
+Type: Package
+Title: Less Is More -- Tinyverse Edition
+Version: 0.0.1
+Date: 2022-01-29
+Author: Dirk Eddelbuettel
+Maintainer: Dirk Eddelbuettel <edd@debian.org>
+Description: Mies van der Rohe said 'Less Is More' and we are looking at this through the
+ lense of two packages. This is the tinyverse edition.
+License: GPL (>= 2)
+Imports: DBI, RPostgreSQL
+Suggests: tinytest, simplermarkdown
+VignetteBuilder: simplermarkdown
+Encoding: UTF-8
+RoxygenNote: 6.0.1
