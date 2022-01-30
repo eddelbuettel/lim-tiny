@@ -5,6 +5,8 @@ name: ci
 on:
   push:
   pull_request:
+  schedule:
+  - cron: "22 2 * * 2"
 
 env:
   USE_BSPM: "true"
