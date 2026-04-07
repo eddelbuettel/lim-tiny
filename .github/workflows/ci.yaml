@@ -22,15 +22,16 @@ jobs:
 
     runs-on: ${{ matrix.os }}
 
+    permissions:
+      # Give default GITHUB_TOKEN write permission to commit and push the changed files back to repo.
+      contents: write
+
     steps:
       - name: Checkout 
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup
-        uses: eddelbuettel/github-actions/r-ci-setup@master
-
-      - name: Bootstrap
-        run: ./run.sh bootstrap
+        uses: eddelbuettel/github-actions/r-ci@master
 
       - name: Dependencies
         run: ./run.sh install_deps
@@ -41,3 +42,15 @@ jobs:
       #- name: Coverage
       #  if: ${{ matrix.os == 'ubuntu-latest' }}
       #  run: ./run.sh coverage
+
+      # The next two steps keep the action 'current'
+      - name: Timestamp
+        run: touch lastTime
+
+      - name: Commit and push
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: '["lastTime"]'
+          push: true
+          default_author: github_actions
+          message: 'Update timestamp'   
