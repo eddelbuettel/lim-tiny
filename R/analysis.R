@@ -25,7 +25,7 @@ getData <- function() {
     ## this is of course not a terribly interesting query but we
     ## neither want to tax their resources nor do anything beyond
     ## simple demo here
-    sql <- "select * from xref limit 500";
+    sql <- "select * from xref limit 500"
     res <- dbGetQuery(con, sql)
     dbDisconnect(con)
 
